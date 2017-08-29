@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo
+from flask_pybankid import PyBankID
 
 app = Flask(__name__)
 app.config.from_envvar('ENDORSE_CFG')
 mongo = PyMongo(app)
+bankid = PyBankID(app)
 
 
 @app.route('/add/<username>', methods=['GET'])
